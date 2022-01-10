@@ -27,7 +27,6 @@ const FormItem = () => {
 
   let onTrue = () => {
     let formData = {'nama_barang': nameItem,'harga_barang': priceItem}
-    let formString = JSON.stringify(formData)
     toggleModal()
     console.log(formData)
     dispatch(addItem(formData))

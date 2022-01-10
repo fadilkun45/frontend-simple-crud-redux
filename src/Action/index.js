@@ -54,9 +54,9 @@ export const deleteData = (id) => async (dispatch) => {
 
 export const addItem = (formData) => async (dispatch) => {
     try {
-        let string = JSON.stringify(formData)
-        console.log(string)
-        const response = await sendItem(string)
+        let string = JSON.parse(formData)
+        console.log(formData)
+        const response = await sendItem(formData)
         dispatch({type: 'POST DATA' ,payload: {data: response ,isLoading: false, error: ''} })
     } catch (error) {
         dispatch({type: 'POST DATA' ,payload: {data: [] ,isLoading: false, error: error} })
