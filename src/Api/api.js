@@ -4,3 +4,4 @@ export const fetchItem = () => axios.get('http://localhost:8080/products').then(
 export const fetchItemById = (id) => axios.get('http://localhost:8080/products/' + id).then((response) => response.data)
 export const sendItem = (payload) => axios.post('http://localhost:8080/products',payload).then((response) => response)
 export const deleteItem = (id) => axios.delete('http://localhost:8080/products/' + id)
+export const updateData = (payload,id) => axios.put('http://localhost:8080/products/' + id ,payload).then((response) => response)

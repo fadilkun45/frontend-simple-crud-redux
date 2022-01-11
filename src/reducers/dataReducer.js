@@ -10,9 +10,9 @@ const dataReducer = (state = initialState  ,action) => {
             return action.payload
         case 'POST DATA' :
             return action.payload
-        case 'DELETE DATA' :
+        case 'UPDATE DATA' :
             return action.payload
-        case 'FETCH DATA BY ID':
+        case 'DELETE DATA' :
             return action.payload
         default:
                 return state

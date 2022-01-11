@@ -23,7 +23,7 @@ const Main = () => {
         <FormItem />
         <div className="flex flex-col w-6/12 bg-white py-3 border-cyan-900 rounded-lg h-screen overflow-y-auto">
         {
-          item?.data?.map((itemdata) => (
+          item?.data.map((itemdata) => (
             <ItemCard nameProduct={itemdata?.nama_barang} id={itemdata?.id}  key={itemdata?.id} price={itemdata?.harga_barang} />
           ))
         }
