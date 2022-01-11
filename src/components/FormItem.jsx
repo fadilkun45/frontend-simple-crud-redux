@@ -2,7 +2,6 @@ import React,{useEffect, useState} from 'react'
 import { useSelector } from 'react-redux'
 import {useDispatch} from 'react-redux'
 import { addItem } from '../Action'
-import {qs} from 'qs'
 import Modal from './Modal'
 
 const FormItem = () => {
@@ -26,10 +25,8 @@ const FormItem = () => {
   },[dispatch])
 
   let onTrue = () => {
-    let formData = {'nama_barang': nameItem,'harga_barang': priceItem}
     toggleModal()
-    console.log(formData)
-    dispatch(addItem(formData))
+    dispatch(addItem({'nama_barang': nameItem,'harga_barang': priceItem}))
   }
 
   let sendData = () => {

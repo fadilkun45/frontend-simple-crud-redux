@@ -52,11 +52,11 @@ export const deleteData = (id) => async (dispatch) => {
  
 }
 
-export const addItem = (formData) => async (dispatch) => {
+export const addItem = (tes) => async (dispatch) => {
     try {
-        let string = JSON.parse(formData)
-        console.log(formData)
-        const response = await sendItem(formData)
+        console.log(tes)
+        const response = await sendItem(tes)
+        console.log(response)
         dispatch({type: 'POST DATA' ,payload: {data: response ,isLoading: false, error: ''} })
     } catch (error) {
         dispatch({type: 'POST DATA' ,payload: {data: [] ,isLoading: false, error: error} })
