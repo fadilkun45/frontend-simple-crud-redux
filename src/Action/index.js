@@ -86,7 +86,6 @@ export const addItem = (data) => async (dispatch) => {
 
 export const prepareUpdate = (id) => async (dispatch) => {
     const response = await fetchItemById(id);
-    console.log(response)
     dispatch({
       type: "PREPARE UPDATE",
       payload: {update: true, data: {item: response.nama_barang,price: response.harga_barang,id } },
@@ -95,30 +94,28 @@ export const prepareUpdate = (id) => async (dispatch) => {
 };
 
 export const Update = (data,id) => async (dispatch) => {
-      const response = await updateData(data,id);
-          console.log(response);
-  // try {
-  //   console.log(data,id);
+  try {
+    console.log(data,id);
 
-  //   const response = await updateData(data,id);
+    const response = await updateData(data,id);
 
-  //   console.log(response);
+    console.log(response);
 
-  //   if (response.status == 201) {
-  //     const refetch = await fetchItem();
-  //     toast.success("data berhasil ditambahkan");
-  //     dispatch({
-  //       type: "UPDATE DATA",
-  //       payload: { data: refetch, isLoading: false, error: "" },
-  //     });
-  //   }
-  // } catch (error) {
-  //   toast.error("data gagal ditambahkan");
-  //   console.log(error);
-  //   const refetch = await fetchItem();
-  //   dispatch({
-  //     type: "UPDATE DATA",
-  //     payload: { data: refetch, isLoading: false, error: error },
-  //   });
-  // }
+    if (response.status == 200) {
+      const refetch = await fetchItem();
+      toast.success("data berhasil di update");
+      dispatch({
+        type: "UPDATE DATA",
+        payload: { data: refetch, isLoading: false, error: "" },
+      });
+    }
+  } catch (error) {
+    toast.error("data gagal ditambahkan");
+    console.log(error);
+    const refetch = await fetchItem();
+    dispatch({
+      type: "UPDATE DATA",
+      payload: { data: refetch, isLoading: false, error: error },
+    });
+  }
 };
